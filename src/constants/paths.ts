@@ -1,6 +1,6 @@
 import { wrap } from 'svelte-spa-router/wrap'
 import { AuthService } from '@/services/AuthService'
-import type { RouteDefinition } from 'svelte-spa-router'
+import { push, RouteDefinition } from 'svelte-spa-router'
 import type { SvelteComponentDev } from 'svelte/internal'
 
 import Counter from '@/pages/counter.svelte'
@@ -9,6 +9,7 @@ import Index from '@/pages/index.svelte'
 
 export const paths = {
   index: () => '/',
+  login: () => '/login',
   counter: () => '/counter',
   users: {
     index: () => '/users',
@@ -25,5 +26,13 @@ export const routes: RouteDefinition = {
 }
 
 function withAuth(component: typeof SvelteComponentDev) {
-  return wrap({ component, conditions: [AuthService.chechAuth] })
+  return wrap({ component, conditions: [redirectIfNotLoggedIn] })
+}
+
+async function redirectIfNotLoggedIn() {
+  if (await AuthService.chechAuth()) return true
+  else {
+    push(paths.login())
+    return false
+  }
 }
