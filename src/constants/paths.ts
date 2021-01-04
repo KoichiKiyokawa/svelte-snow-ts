@@ -6,6 +6,7 @@ import type { SvelteComponentDev } from 'svelte/internal'
 import Counter from '@/pages/counter.svelte'
 import Users from '@/pages/users/index.svelte'
 import Index from '@/pages/index.svelte'
+import Login from '@/pages/login.svelte'
 
 export const paths = {
   index: () => '/',
@@ -20,6 +21,7 @@ export const paths = {
 
 export const routes: RouteDefinition = {
   [paths.index()]: Index,
+  [paths.login()]: Login,
   [paths.counter()]: Counter,
   [paths.users.index()]: withAuth(Users),
   [paths.users.show(':userId')]: Users,

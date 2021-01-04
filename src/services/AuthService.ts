@@ -1,7 +1,10 @@
 import { firebase } from '@/plugins/firebase'
 
 export class AuthService {
-  static login() {}
+  static async login(email: string, password: string): Promise<void> {
+    await firebase.auth().signInWithEmailAndPassword(email, password)
+    return
+  }
 
   static async chechAuth(): Promise<boolean> {
     try {
