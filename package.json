@@ -3,7 +3,8 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "test": "web-test-runner \"src/**/*.test.ts\"",
-    "validate": "svelte-check --fail-on-warnings --fail-on-hints"
+    "validate": "svelte-check --fail-on-warnings --fail-on-hints",
+    "fmt": "prettier --write ./**/*.{js,ts,svelte}"
   },
   "dependencies": {
     "svelte": "^3.24.0",
@@ -15,10 +16,13 @@
     "@snowpack/plugin-typescript": "^1.1.1",
     "@snowpack/web-test-runner-plugin": "^0.1.5",
     "@testing-library/svelte": "^3.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^1.4.1",
     "@types/chai": "^4.2.13",
     "@types/snowpack-env": "^2.3.2",
     "@web/test-runner": "^0.10.0",
     "chai": "^4.2.0",
+    "prettier": "^2.2.1",
+    "prettier-plugin-svelte": "^1.4.2",
     "snowpack": "^2.18.4",
     "svelte-check": "^1.1.24",
     "svelte-preprocess": "^4.0.8",
