@@ -1,23 +1,18 @@
 <script lang="ts">
-  import Router from "svelte-spa-router";
-  import { routes } from "@/constants/paths";
-  import Header from "@/components/organisms/Header.svelte";
+  import Router from 'svelte-spa-router'
+  import Header from '@/components/organisms/Header.svelte'
+  import { routes } from '@/constants/paths'
+  import '@/styles/main.css'
 </script>
-
-<style global>
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  h1 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-  }
-</style>
 
 <header>
   <Header />
 </header>
-<main>
+<main class="px-4 py-8">
   <Router {routes} />
 </main>
+
+<style lang="sass" global>
+[disabled]
+  @apply opacity-25 cursor-not-allowed
+</style>

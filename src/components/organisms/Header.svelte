@@ -8,19 +8,9 @@
   }
 </script>
 
-<nav>
-  <h1>Svelte+Snowpack+Typescript</h1>
+<nav class="flex items-center bg-blue-400 h-12 px-4">
+  <h1 class="text-white text-3xl">Svelte+Snowpack+Typescript</h1>
   {#if showMenu}
-    <div class="menu"><button on:click={logout}>Logout</button></div>
+    <div class="ml-auto"><button on:click={logout} class="text-white">Logout</button></div>
   {/if}
 </nav>
-
-<style>
-  nav {
-    display: flex;
-    background-color: #333333;
-  }
-  .menu {
-    margin-left: auto;
-  }
-</style>
