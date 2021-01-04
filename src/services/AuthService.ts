@@ -6,6 +6,11 @@ export class AuthService {
     return
   }
 
+  static async logout() {
+    await firebase.auth().signOut()
+    return
+  }
+
   static async chechAuth(): Promise<boolean> {
     try {
       await new Promise((resolve, reject) => {
