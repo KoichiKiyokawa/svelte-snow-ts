@@ -2,7 +2,6 @@
   import Router from 'svelte-spa-router'
   import Header from '@/components/organisms/Header.svelte'
   import { routes } from '@/constants/paths'
-  import '@/styles/main.css'
 </script>
 
 <header>
@@ -13,6 +12,10 @@
 </main>
 
 <style lang="sass" global>
+@import "tailwindcss/dist/base.css"
+@import "tailwindcss/dist/components.css"
+@import "tailwindcss/dist/utilities.css"
+
 [disabled]
   @apply opacity-25 cursor-not-allowed
 </style>
