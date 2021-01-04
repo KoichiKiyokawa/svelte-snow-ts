@@ -1,6 +1,6 @@
 import App from './App.svelte'
-import { render } from '@testing-library/svelte'
 import { expect } from 'chai'
+import { render } from '@testing-library/svelte'
 
 describe('<App>', () => {
   it('renders learn svelte link', () => {

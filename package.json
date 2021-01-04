@@ -4,9 +4,10 @@
     "build": "snowpack build",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "validate": "svelte-check --fail-on-warnings --fail-on-hints",
-    "fmt": "prettier --write ./**/*.{js,ts,svelte}"
+    "fmt": "prettier --write ./**/*.{js,ts,svelte} --ignore-path .gitignore"
   },
   "dependencies": {
+    "firebase": "^8.2.1",
     "svelte": "^3.24.0",
     "svelte-spa-router": "^3.1.0"
   },
