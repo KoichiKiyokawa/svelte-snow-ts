@@ -4,6 +4,10 @@ service cloud.firestore {
     match /users/{userID} {
       allow read, write: if isLoggedIn();
     }
+
+    match /posts/{postID} {
+      allow read, write: if isLoggedIn();
+    }
   }
 }
 

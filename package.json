@@ -1,7 +1,7 @@
 {
   "license": "UNLICENSED",
   "scripts": {
-    "start": "snowpack dev",
+    "dev": "snowpack dev",
     "build": "NODE_ENV=production snowpack build",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "validate": "svelte-check --fail-on-warnings --fail-on-hints",

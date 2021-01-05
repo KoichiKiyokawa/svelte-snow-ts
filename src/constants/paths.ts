@@ -5,6 +5,7 @@ import type { SvelteComponentDev } from 'svelte/internal'
 import Counter from '@/pages/counter.svelte'
 import Index from '@/pages/index.svelte'
 import Login from '@/pages/login.svelte'
+import Posts from '@/pages/posts/index.svelte'
 import Users from '@/pages/users/index.svelte'
 import UsersShow from '@/pages/users/show.svelte'
 import { AuthService } from '@/services/AuthService'
@@ -15,8 +16,13 @@ export const paths = {
   counter: () => '/counter',
   users: {
     index: () => '/users',
-    show: (userId: string) => paths.users.index() + '/' + userId,
-    edit: (userId: string) => paths.users.show(userId) + '/edit',
+    show: (userID: string) => paths.users.index() + '/' + userID,
+    edit: (userID: string) => paths.users.show(userID) + '/edit',
+  },
+  posts: {
+    index: () => '/posts',
+    show: (postID: string) => paths.posts.index() + '/' + postID,
+    edit: (postID: string) => paths.posts.show(postID) + '/edit',
   },
 }
 
@@ -25,7 +31,8 @@ export const routes: RouteDefinition = {
   [paths.login()]: Login,
   [paths.counter()]: Counter,
   [paths.users.index()]: withAuth(Users),
-  [paths.users.show(':userId')]: UsersShow,
+  [paths.users.show(':userID')]: UsersShow,
+  [paths.posts.index()]: withAuth(Posts),
 }
 
 function withAuth(component: typeof SvelteComponentDev) {
