@@ -1,12 +1,11 @@
-import { wrap } from 'svelte-spa-router/wrap'
-import { AuthService } from '@/services/AuthService'
 import { push, RouteDefinition } from 'svelte-spa-router'
+import { wrap } from 'svelte-spa-router/wrap'
 import type { SvelteComponentDev } from 'svelte/internal'
-
 import Counter from '@/pages/counter.svelte'
-import Users from '@/pages/users/index.svelte'
 import Index from '@/pages/index.svelte'
 import Login from '@/pages/login.svelte'
+import Users from '@/pages/users/index.svelte'
+import { AuthService } from '@/services/AuthService'
 
 export const paths = {
   index: () => '/',

@@ -5,8 +5,8 @@
     "build": "NODE_ENV=production snowpack build",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "validate": "svelte-check --fail-on-warnings --fail-on-hints",
-    "fmt": "prettier --write ./**/*.{js,ts,svelte} --ignore-path .gitignore",
-    "fmt:check": "prettier --check ./**/*.{js,ts,svelte} --ignore-path .gitignore"
+    "fmt": "prettier --write --plugin-search-dir=. --ignore-path .gitignore ./**/*.{js,ts,svelte}",
+    "fmt:check": "prettier --check --plugin-search-dir=. --ignore-path .gitignore ./**/*.{js,ts,svelte}"
   },
   "browserslist": ">0.75%, not ie 11, not UCAndroid >0, not OperaMini all",
   "dependencies": {
