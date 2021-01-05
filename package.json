@@ -2,11 +2,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
+    "build": "NODE_ENV=production snowpack build",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "validate": "svelte-check --fail-on-warnings --fail-on-hints",
     "fmt": "prettier --write ./**/*.{js,ts,svelte} --ignore-path .gitignore"
   },
+  "browserslist": ">0.75%, not ie 11, not UCAndroid >0, not OperaMini all",
   "dependencies": {
     "firebase": "^8.2.1",
     "svelte": "^3.24.0",

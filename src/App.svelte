@@ -12,9 +12,9 @@
 </main>
 
 <style lang="sass" global>
-@import "tailwindcss/dist/base.css"
-@import "tailwindcss/dist/components.css"
-@import "tailwindcss/dist/utilities.css"
+@tailwind base
+@tailwind components
+@tailwind utilities
 
 [disabled]
   @apply opacity-25 cursor-not-allowed
