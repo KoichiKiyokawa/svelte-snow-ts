@@ -15,4 +15,8 @@ export class UserRepository extends BaseRepository<User> {
       updatedAt: data.updatedAt.toDate(),
     }
   }
+
+  async create(data: Omit<User, 'createdAt' | 'updatedAt'>) {
+    return super.create({ ...data, createdAt: new Date(), updatedAt: new Date() })
+  }
 }

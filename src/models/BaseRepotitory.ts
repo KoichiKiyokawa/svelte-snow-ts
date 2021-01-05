@@ -6,7 +6,10 @@ import { firestore } from '@/plugins/firebase'
 export abstract class BaseRepository<T extends Record<string, unknown>> {
   abstract get collectionName(): string
   get collectionReference() {
-    return firestore.collection(this.collectionName) as firebase.firestore.CollectionReference<FromFirestore<T>>
+    return firestore.collection(this.collectionName).withConverter<T>({
+      fromFirestore: (snap) => this.convertFromFirestore(snap.data() as FromFirestore<T>),
+      toFirestore: (data: T) => data,
+    })
   }
 
   abstract convertFromFirestore(data: FromFirestore<T>): T
@@ -16,14 +19,19 @@ export abstract class BaseRepository<T extends Record<string, unknown>> {
     const data = doc.data()
     if (data === undefined) throw Error('no data')
 
-    return { data: this.convertFromFirestore(data), id: doc.id }
+    return { data, id: doc.id }
+  }
+
+  async create(data: T): Promise<RepositoryResult<T>> {
+    const doc = await this.collectionReference.add(data)
+    return { id: doc.id, data }
   }
 
   async all(): Promise<RepositoryResult<T>[]> {
     const querySnapshot = await this.collectionReference.get()
     return querySnapshot.docs.flatMap((doc) => {
       const data = doc.data()
-      return data === undefined ? [] : { id: doc.id, data: this.convertFromFirestore(data) }
+      return data === undefined ? [] : { id: doc.id, data }
     })
   }
 
