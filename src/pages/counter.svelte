@@ -1,17 +1,17 @@
 <script lang="ts">
-  let counters: number[] = [];
-  $: sum = counters.reduce((acc, current) => acc + current, 0);
+  let counters: number[] = []
+  $: sum = counters.reduce((acc, current) => acc + current, 0)
 
   function add() {
-    counters = [...counters, 0];
+    counters = [...counters, 0]
   }
 
   function increment(index: number) {
-    counters[index]++;
+    counters[index]++
   }
 
   function decrement(index: number) {
-    if (counters[index] >= 1) counters[index]--;
+    if (counters[index] >= 1) counters[index]--
   }
 </script>
 

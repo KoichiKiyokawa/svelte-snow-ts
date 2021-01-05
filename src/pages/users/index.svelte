@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let params: { userId?: string } = {};
+  export let params: { userId?: string } = {}
   $: {
-    console.log(params);
+    console.log(params)
   }
 </script>
 
