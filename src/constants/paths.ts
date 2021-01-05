@@ -1,6 +1,7 @@
 import { push, RouteDefinition } from 'svelte-spa-router'
 import { wrap } from 'svelte-spa-router/wrap'
 import type { SvelteComponentDev } from 'svelte/internal'
+
 import Counter from '@/pages/counter.svelte'
 import Index from '@/pages/index.svelte'
 import Login from '@/pages/login.svelte'

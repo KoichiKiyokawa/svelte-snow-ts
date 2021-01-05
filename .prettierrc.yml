@@ -5,3 +5,4 @@ svelteSortOrder: scripts-markup-styles
 importOrder:
   - ^[a-z]+$
   - ^@.*$
+importOrderSeparation: true
