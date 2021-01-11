@@ -8,7 +8,7 @@
 </script>
 
 <nav class="flex items-center bg-blue-400 h-12 px-4">
-  <h1 class="text-white text-3xl">Svelte+Snowpack+Typescript</h1>
+  <h1 class="text-white text-3xl"><a href="/">Svelte+Snowpack+Typescript</a></h1>
   {#if showMenu}
     <div class="ml-auto"><button on:click={logout} class="text-white">Logout</button></div>
   {/if}

@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import { UserRepository } from '@/models/user/repository'
   import { DateUtil } from '@/utils/DateUtil'
+  import { url } from '@roxi/routify'
   let users: RepositoryResult<User>[] = []
   let form: Omit<User, 'birthday' | 'createdAt' | 'updatedAt'> & { birthday: string } = {
     name: '',
@@ -36,7 +37,9 @@
       {#each users as user}
         <tr>
           <td class="border p-2">
-            <a class="text-blue-400 hover:underline" href={`/users/${user.id}`}>{user.data.name}</a>
+            <a
+              class="text-blue-400 hover:underline"
+              href={$url(`/users/:userID`, { userID: user.id })}>{user.data.name}</a>
           </td>
           <td class="border p-2">{DateUtil(user.data.birthday).formatYYYYMMDD()}</td>
         </tr>
