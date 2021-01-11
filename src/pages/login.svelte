@@ -1,14 +1,13 @@
 <script lang="ts">
   import { push } from 'svelte-spa-router'
   import Spin from '@/components/atoms/Spin.svelte'
-  import { paths } from '@/constants/paths'
   import { AuthService } from '@/services/AuthService'
   let form = { email: '', password: '' }
   let loading = false
   function login() {
     loading = true
     AuthService.login(form.email, form.password)
-      .then(() => push(paths.users.index()))
+      .then(() => push('/users'))
       .finally(() => (loading = false))
   }
 </script>

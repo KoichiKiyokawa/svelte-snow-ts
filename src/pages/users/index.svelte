@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { link } from 'svelte-spa-router'
   import { onMount } from 'svelte'
-  import { paths } from '@/constants/paths'
   import { UserRepository } from '@/models/user/repository'
   import { DateUtil } from '@/utils/DateUtil'
   let users: RepositoryResult<User>[] = []
@@ -38,7 +36,7 @@
       {#each users as user}
         <tr>
           <td class="border p-2">
-            <a class="text-blue-400 hover:underline" use:link href={paths.users.show(user.id)}>{user.data.name}</a>
+            <a class="text-blue-400 hover:underline" href={`/users/${user.id}`}>{user.data.name}</a>
           </td>
           <td class="border p-2">{DateUtil(user.data.birthday).formatYYYYMMDD()}</td>
         </tr>

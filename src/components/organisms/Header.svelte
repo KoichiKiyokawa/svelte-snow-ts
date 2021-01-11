@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { location, push } from 'svelte-spa-router'
-  import { paths } from '@/constants/paths'
   import { AuthService } from '@/services/AuthService'
-  $: showMenu = ['/users'].some((prefix) => $location.startsWith(prefix))
+  import { goto } from '@roxi/routify'
+  $: showMenu = true
   function logout() {
-    AuthService.logout().then(() => push(paths.login()))
+    AuthService.logout().then(() => $goto('/login'))
   }
 </script>
 

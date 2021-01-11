@@ -1,12 +1,13 @@
 <script lang="ts">
-  import Router from 'svelte-spa-router'
   import Header from '@/components/organisms/Header.svelte'
-  import { routes } from '@/constants/paths'
+  import { routes } from '@/routify/routes'
+  import { Router } from '@roxi/routify'
 </script>
 
 <header>
   <Header />
 </header>
+
 <main class="px-4 py-8">
   <Router {routes} />
 </main>

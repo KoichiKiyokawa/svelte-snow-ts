@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { link } from 'svelte-spa-router'
-  import { paths } from '@/constants/paths'
 </script>
 
 <ul>
-  <li><a href={paths.counter()} use:link>counter</a></li>
-  <li><a href={paths.users.index()} use:link>users</a></li>
+  <li><a href="/counter">counter</a></li>
+  <li><a href="/users">users</a></li>
 </ul>
 
 <style lang="sass">

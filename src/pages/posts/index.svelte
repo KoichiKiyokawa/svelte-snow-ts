@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { link } from 'svelte-spa-router'
   import { onMount } from 'svelte'
-  import { paths } from '@/constants/paths'
   import { PostRepository } from '@/models/post/repository'
   import { UserRepository } from '@/models/user/repository'
   import { DateUtil } from '@/utils/DateUtil'
@@ -10,8 +8,6 @@
   let form: Omit<Post, 'userID' | 'createdAt' | 'updatedAt'> & { userID: string } = { title: '', body: '', userID: '' }
   onMount(async () => {
     ;[posts, users] = await Promise.all([new PostRepository().all(), new UserRepository().all()])
-    console.log(posts)
-    console.log(users)
   })
   function formatBody(body: string) {
     const MAX_LENGTH = 6
@@ -53,7 +49,7 @@
       {#each posts as post}
         <tr>
           <td class="border p-2">
-            <a class="text-blue-400 hover:underline" use:link href={paths.users.show(post.id)}>{post.data.title}</a>
+            <a class="text-blue-400 hover:underline" href={`users/${post.id}`}>{post.data.title}</a>
           </td>
           <td class="border p-2">{formatBody(post.data.body)}</td>
           <td class="border p-2">{DateUtil(post.data.createdAt).formatYYYYMMDD()}</td>
