@@ -12,8 +12,7 @@
   "browserslist": ">0.75%, not ie 11, not UCAndroid >0, not OperaMini all",
   "dependencies": {
     "firebase": "^8.2.1",
-    "svelte": "^3.24.0",
-    "svelte-spa-router": "^3.1.0"
+    "svelte": "^3.24.0"
   },
   "devDependencies": {
     "@roxi/routify": "^2.8.5",
